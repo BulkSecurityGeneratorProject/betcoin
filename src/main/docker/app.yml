@@ -1,0 +1,14 @@
+version: '2'
+services:
+    betcoin-app:
+        image: betcoin
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://betcoin-mysql:3306/betcoin?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    betcoin-mysql:
+        extends:
+            file: mysql.yml
+            service: betcoin-mysql
