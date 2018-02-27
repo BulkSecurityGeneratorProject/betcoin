@@ -1,0 +1,65 @@
+entity Gamer {
+	pseudo String,
+    email String,
+    points Integer,
+    lastconnexion Instant,
+    isadmin Boolean
+}
+
+entity Team {
+	name String,
+    color String
+}
+
+entity Match {	
+	date LocalDate,
+	score1 Integer,
+    score2 Integer,
+    phase Phase
+}
+
+entity Group {
+	name String,
+    winner Integer
+}
+
+entity Competition {
+	name String,
+	winner Integer
+}
+
+
+entity Pronotype {
+	label String,
+    expirationDate LocalDate,
+	points Integer
+}
+
+entity Pronostic {
+	date LocalDate,
+	resourceid Long,
+	score1 Integer,
+    score2 Integer,
+    winner Long,
+    status Status
+}
+
+enum Phase {
+    FIRST, EIGHTH, QUARTER, SEMI, THIRD, FINAL
+}
+
+enum Status {
+    WON, LOST, PENDING
+}
+
+
+relationship OneToMany {
+	 Gamer{pronostics} to Pronostic{gamer},
+     Group{teams} to Team{group},
+     Team{matchs} to Match{team1},
+     Team{matchs} to Match{team2},
+     Pronotype to Pronostic{pronotype}
+}
+paginate all with pagination
+service all with serviceImpl
+
