@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span>Pronostic</span> {{vm.pronostic.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Date</span></dt>
+        <dd>
+            <span>{{vm.pronostic.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Resourceid</span></dt>
+        <dd>
+            <span>{{vm.pronostic.resourceid}}</span>
+        </dd>
+        <dt><span>Score 1</span></dt>
+        <dd>
+            <span>{{vm.pronostic.score1}}</span>
+        </dd>
+        <dt><span>Score 2</span></dt>
+        <dd>
+            <span>{{vm.pronostic.score2}}</span>
+        </dd>
+        <dt><span>Winner</span></dt>
+        <dd>
+            <span>{{vm.pronostic.winner}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{vm.pronostic.status}}</span>
+        </dd>
+        <dt><span>Gamer</span></dt>
+        <dd>
+            <a ui-sref="gamer-detail({id:vm.pronostic.gamer.id})">{{vm.pronostic.gamer.id}}</a>
+        </dd>
+        <dt><span>Pronotype</span></dt>
+        <dd>
+            <a ui-sref="pronotype-detail({id:vm.pronostic.pronotype.id})">{{vm.pronostic.pronotype.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="pronostic-detail.edit({id:vm.pronostic.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

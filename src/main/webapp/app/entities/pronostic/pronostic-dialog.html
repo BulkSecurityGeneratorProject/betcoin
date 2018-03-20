@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPronosticLabel">Create or edit a Pronostic</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.pronostic.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.pronostic.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_date">Date</label>
+                <div class="input-group">
+                    <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.pronostic.date" is-open="vm.datePickerOpenStatus.date"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_resourceid">Resourceid</label>
+            <input type="number" class="form-control" name="resourceid" id="field_resourceid"
+                    ng-model="vm.pronostic.resourceid"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_score1">Score 1</label>
+            <input type="number" class="form-control" name="score1" id="field_score1"
+                    ng-model="vm.pronostic.score1"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_score2">Score 2</label>
+            <input type="number" class="form-control" name="score2" id="field_score2"
+                    ng-model="vm.pronostic.score2"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_winner">Winner</label>
+            <input type="number" class="form-control" name="winner" id="field_winner"
+                    ng-model="vm.pronostic.winner"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_status">Status</label>
+            <select class="form-control" name="status" ng-model="vm.pronostic.status" id="field_status">
+                <option value="WON">WON</option>
+                <option value="LOST">LOST</option>
+                <option value="PENDING">PENDING</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="field_gamer">Gamer</label>
+            <select class="form-control" id="field_gamer" name="gamer" ng-model="vm.pronostic.gamer" ng-options="gamer as gamer.id for gamer in vm.gamers track by gamer.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="field_pronotype">Pronotype</label>
+            <select class="form-control" id="field_pronotype" name="pronotype" ng-model="vm.pronostic.pronotype" ng-options="pronotype as pronotype.id for pronotype in vm.pronotypes track by pronotype.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

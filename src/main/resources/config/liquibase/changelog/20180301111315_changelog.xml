@@ -1,0 +1,94 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="yfomena (generated)" id="1519902831454-1">
+        <addColumn tableName="competition">
+            <column name="second_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-2">
+        <addColumn tableName="jhi_group">
+            <column name="second_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-3">
+        <addColumn tableName="competition">
+            <column name="third_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-4">
+        <addColumn tableName="competition">
+            <column name="winner_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-5">
+        <addColumn tableName="jhi_group">
+            <column name="winner_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-6">
+        <addUniqueConstraint columnNames="second_id" constraintName="UC_COMPETITIONSECOND_ID_COL" tableName="competition"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-7">
+        <addUniqueConstraint columnNames="third_id" constraintName="UC_COMPETITIONTHIRD_ID_COL" tableName="competition"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-8">
+        <addUniqueConstraint columnNames="winner_id" constraintName="UC_COMPETITIONWINNER_ID_COL" tableName="competition"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-9">
+        <addUniqueConstraint columnNames="second_id" constraintName="UC_JHI_GROUPSECOND_ID_COL" tableName="jhi_group"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-10">
+        <addUniqueConstraint columnNames="winner_id" constraintName="UC_JHI_GROUPWINNER_ID_COL" tableName="jhi_group"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-11">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="jhi_user_authority" constraintName="FK290okww5jujghp4el5i7mgwu0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-12">
+        <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="jhi_persistent_audit_evt_data" constraintName="FK2ehnyx2si4tjd2nt4q7y40v8m" deferrable="false" initiallyDeferred="false" referencedColumnNames="event_id" referencedTableName="jhi_persistent_audit_event"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-13">
+        <addForeignKeyConstraint baseColumnNames="pronotype_id" baseTableName="pronostic" constraintName="FK3axqesmf0bjw066bqmb0dapfx" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="pronotype"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-14">
+        <addForeignKeyConstraint baseColumnNames="authority_name" baseTableName="jhi_user_authority" constraintName="FK4psxl0jtx6nr7rhqbynr6itoc" deferrable="false" initiallyDeferred="false" referencedColumnNames="name" referencedTableName="jhi_authority"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-15">
+        <addForeignKeyConstraint baseColumnNames="gamer_id" baseTableName="pronostic" constraintName="FK591p784a3t3yjmon9fkg199do" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="gamer"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-16">
+        <addForeignKeyConstraint baseColumnNames="third_id" baseTableName="competition" constraintName="FK9p9pl909c1wnxdv8lhkkn8j7i" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-17">
+        <addForeignKeyConstraint baseColumnNames="winner_id" baseTableName="jhi_group" constraintName="FKbg639f6k31bl1ifr10a0ynert" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-18">
+        <addForeignKeyConstraint baseColumnNames="group_id" baseTableName="team" constraintName="FKceic8gxexgqbjce7ue1ik5llj" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_group"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-19">
+        <addForeignKeyConstraint baseColumnNames="winner_id" baseTableName="competition" constraintName="FKf4ygwo8msi3ukk3bqiokefvu7" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-20">
+        <addForeignKeyConstraint baseColumnNames="second_id" baseTableName="competition" constraintName="FKg6jreust22j2jwcj22dokxl6a" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-21">
+        <addForeignKeyConstraint baseColumnNames="team2_id" baseTableName="jhi_match" constraintName="FKgjgfuu2y2or317oa4xxjqocwa" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-22">
+        <addForeignKeyConstraint baseColumnNames="team1_id" baseTableName="jhi_match" constraintName="FKkeygd4jbw4pxjokwap9hy3pd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-23">
+        <addForeignKeyConstraint baseColumnNames="second_id" baseTableName="jhi_group" constraintName="FKqtdxaj1waagc18bv4x1a638aq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-24">
+        <dropUniqueConstraint constraintName="user_id" tableName="jhi_social_user_connection"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-25">
+        <dropUniqueConstraint constraintName="user_id_2" tableName="jhi_social_user_connection"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-26">
+        <dropColumn columnName="winner" tableName="competition"/>
+    </changeSet>
+    <changeSet author="yfomena (generated)" id="1519902831454-27">
+        <dropColumn columnName="winner" tableName="jhi_group"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pronostic",
+            "otherEntityName": "pronostic",
+            "otherEntityRelationshipName": "pronotype"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expirationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "points",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180227104207",
+    "entityTableName": "pronotype",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

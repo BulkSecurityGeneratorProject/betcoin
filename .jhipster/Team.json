@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "matchshome",
+            "otherEntityName": "match",
+            "otherEntityRelationshipName": "team1"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "matchsaway",
+            "otherEntityName": "match",
+            "otherEntityRelationshipName": "team2"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "group",
+            "otherEntityName": "group",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180227104203",
+    "entityTableName": "team",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

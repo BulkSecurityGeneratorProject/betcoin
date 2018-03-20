@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gamer",
+            "otherEntityName": "gamer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "pronotype",
+            "otherEntityName": "pronotype",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "resourceid",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "score1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "score2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "winner",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Status",
+            "fieldValues": "WON,LOST,PENDING"
+        }
+    ],
+    "changelogDate": "20180227104208",
+    "entityTableName": "pronostic",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

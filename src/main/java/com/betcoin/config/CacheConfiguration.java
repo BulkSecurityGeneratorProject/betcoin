@@ -44,6 +44,18 @@ public class CacheConfiguration {
             cm.createCache(com.betcoin.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.betcoin.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
+            cm.createCache(com.betcoin.domain.Team.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Pronotype.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Group.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Match.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Gamer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Competition.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Pronostic.class.getName(), jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Gamer.class.getName() + ".pronostics", jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Group.class.getName() + ".teams", jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Team.class.getName() + ".matchshomes", jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Team.class.getName() + ".matchsaways", jcacheConfiguration);
+            cm.createCache(com.betcoin.domain.Pronotype.class.getName() + ".pronostics", jcacheConfiguration);
         };
     }
 }

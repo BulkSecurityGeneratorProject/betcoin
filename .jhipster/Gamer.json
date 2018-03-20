@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pronostics",
+            "otherEntityName": "pronostic",
+            "otherEntityRelationshipName": "gamer"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "pseudo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "points",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lastconnexion",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "isadmin",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180227104202",
+    "entityTableName": "gamer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

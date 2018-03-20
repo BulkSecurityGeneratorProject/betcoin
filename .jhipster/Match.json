@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "team1",
+            "otherEntityName": "team",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "team2",
+            "otherEntityName": "team",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "score1",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "score2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "phase",
+            "fieldType": "Phase",
+            "fieldValues": "FIRST,EIGHTH,QUARTER,SEMI,THIRD,FINAL"
+        }
+    ],
+    "changelogDate": "20180227104204",
+    "entityTableName": "match",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl"
+}

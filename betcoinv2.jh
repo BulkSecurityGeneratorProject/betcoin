@@ -2,7 +2,7 @@ entity Gamer {
 	pseudo String,
     email String,
     points Integer,
-    lastconnexion Instant,
+    lastconnexion LocalDate,
     isadmin Boolean
 }
 
@@ -11,7 +11,7 @@ entity Team {
     color String
 }
 
-entity Match {	
+entity Match {
 	date LocalDate,
 	score1 Integer,
     score2 Integer,
@@ -19,13 +19,11 @@ entity Match {
 }
 
 entity Group {
-	name String,
-    winner Integer
+	name String
 }
 
 entity Competition {
-	name String,
-	winner Integer
+	name String
 }
 
 
@@ -52,12 +50,19 @@ enum Status {
     WON, LOST, PENDING
 }
 
+relationship OneToOne {
+  Group{winner} to Team,
+  Group{second} to Team,
+  Competition{winner} to Team,
+  Competition{second} to Team,
+  Competition{third} to Team
+}
 
 relationship OneToMany {
 	 Gamer{pronostics} to Pronostic{gamer},
      Group{teams} to Team{group},
-     Team{matchs} to Match{team1},
-     Team{matchs} to Match{team2},
+     Team{matchshome} to Match{team1},
+     Team{matchsaway} to Match{team2},
      Pronotype to Pronostic{pronotype}
 }
 paginate all with pagination

@@ -1,0 +1,78 @@
+<div>
+    <h2>Pronostics</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="pronostic.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Pronostic
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span>ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span>Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="resourceid"><span>Resourceid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="score1"><span>Score 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="score2"><span>Score 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="winner"><span>Winner</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="status"><span>Status</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="gamer.id"><span>Gamer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pronotype.id"><span>Pronotype</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pronostic in vm.pronostics track by pronostic.id">
+                    <td><a ui-sref="pronostic-detail({id:pronostic.id})">{{pronostic.id}}</a></td>
+                        <td>{{pronostic.date | date:'mediumDate'}}</td>
+                    <td>{{pronostic.resourceid}}</td>
+                    <td>{{pronostic.score1}}</td>
+                    <td>{{pronostic.score2}}</td>
+                    <td>{{pronostic.winner}}</td>
+                    <td>{{pronostic.status}}</td>
+                    <td>
+                        <a ui-sref="gamer-detail({id:pronostic.gamer.id})">{{pronostic.gamer.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="pronotype-detail({id:pronostic.pronotype.id})">{{pronostic.pronotype.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="pronostic-detail({id:pronostic.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pronostic.edit({id:pronostic.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="pronostic.delete({id:pronostic.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
